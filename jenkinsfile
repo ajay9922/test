@@ -1,0 +1,28 @@
+pipeline{
+   agent any
+     stages{
+         stage('install httpd'){
+             steps{
+                   sh"sudo yum install httpd -y"
+}
+}
+       stage('service start'){
+         steps{
+              sh"service httpd start"
+}
+}
+       stage('copy file'){
+          steps{
+              sh"cp -r index.html /var/www/html/"
+              sh"chmod -R 777 /var/www/html/"
+
+}
+}
+         stage('service restart'){
+           steps{
+                sh"service httpd restart"
+
+}
+}
+}
+}
