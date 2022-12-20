@@ -10,6 +10,7 @@ pipeline {
        
         stage('Clone the repo') {
             steps {
+                sh 'rm -rf test'
                 sh 'git clone https://github.com/ajay9922/test.git'
             }
         }
